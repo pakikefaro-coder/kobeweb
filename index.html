@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="神戸市東灘区の一人事業。お店のホームページとGoogleマップの更新を月8,800円で代わりに続けます。LINE公式アカウントの開設もお受けします。">
+<meta property="og:title" content="KOBE WEB">
+<meta property="og:description" content="ホームページとGoogleマップの更新を、月8,800円で代わりにやります。神戸市東灘区の一人の仕事です。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kobeweb.jp/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2226%22>📍</text></svg>">
+<title>KOBE WEB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#FBFBF9;
+    --paper-2:#F2F2EE;
+    --ink:#14161A;
+    --ink-2:#565C60;
+    --ink-3:#7C8286;
+    --rule:#D9DAD4;
+    --rule-2:#E9E9E4;
+    --accent:#1F5B4E;
+    --accent-soft:#E3EDE9;
+    --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    --mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#101214; --paper-2:#181B1E; --ink:#E9E9E4; --ink-2:#A8AEB1;
+      --ink-3:#848A8D; --rule:#2C3033; --rule-2:#22262A;
+      --accent:#78B7A5; --accent-soft:#172A26;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#101214; --paper-2:#181B1E; --ink:#E9E9E4; --ink-2:#A8AEB1;
+    --ink-3:#848A8D; --rule:#2C3033; --rule-2:#22262A;
+    --accent:#78B7A5; --accent-soft:#172A26;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px; margin:0 auto; padding-inline:20px; padding-block:0}
+  h1,h2,h3{font-family:var(--serif); font-weight:700; text-wrap:balance; line-height:1.45}
+  p{margin:0}
+  a{color:var(--accent); text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+
+  header{padding-block:56px 38px; border-bottom:2px solid var(--ink)}
+  .mark{font-family:var(--mono); font-size:13px; letter-spacing:.22em; color:var(--ink-2)}
+  h1{font-size:clamp(27px,6.6vw,38px); margin:14px 0 18px; letter-spacing:.02em}
+  .lede{font-size:17px; display:flex; flex-direction:column; gap:10px}
+  .lede em{font-style:normal; font-weight:700}
+
+  section{padding-block:40px; border-bottom:1px solid var(--rule)}
+  section:last-of-type{border-bottom:none}
+  h2{font-size:20px; margin:0 0 4px}
+  .note{font-size:14.5px; color:var(--ink-2); line-height:1.8}
+
+  /* 3本柱 */
+  .pillars{display:grid; grid-template-columns:1fr; gap:0; margin-top:20px;
+           border-top:2px solid var(--ink); border-bottom:2px solid var(--ink)}
+  .pillar{padding:20px 0; border-bottom:1px solid var(--rule-2)}
+  .pillar:last-child{border-bottom:none}
+  .pillar h3{font-size:17px; margin:0 0 8px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .pillar h3 .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
+                  color:var(--accent); border:1px solid var(--accent); border-radius:2px;
+                  padding:1px 6px; font-weight:400}
+  .pillar ul{margin:8px 0 0; padding-left:1.15em; color:var(--ink-2); font-size:14.5px; line-height:1.8}
+  .pillar li{margin-bottom:3px}
+
+  /* 時間の内訳 */
+  .ledger{margin-top:18px; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink)}
+  .ledger table{width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums}
+  .ledger td{padding:8px 0; border-bottom:1px solid var(--rule-2); vertical-align:baseline; font-size:15px}
+  .ledger tr:last-child td{border-bottom:none}
+  .ledger td.min{font-family:var(--mono); text-align:right; white-space:nowrap; width:5.2em; font-size:13.5px}
+  .ledger tr.sum td{border-top:1.5px solid var(--ink); border-bottom:none; padding-top:11px; font-weight:700}
+  .ledger tr.sum td.min{font-size:16px; color:var(--accent)}
+
+  /* 料金 */
+  .price{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:16px}
+  .price .num{font-family:var(--mono); font-weight:600; font-size:34px; letter-spacing:-.02em}
+  .price .tax{font-size:14px; color:var(--ink-2)}
+  table.opt{width:100%; border-collapse:collapse; margin-top:20px; font-variant-numeric:tabular-nums}
+  table.opt th{text-align:left; font-size:11px; letter-spacing:.14em; color:var(--ink-3);
+               font-weight:500; font-family:var(--mono); padding-bottom:6px; border-bottom:1px solid var(--rule)}
+  table.opt td{padding:9px 0; border-bottom:1px solid var(--rule-2); font-size:14.5px; vertical-align:top}
+  table.opt td.p{font-family:var(--mono); text-align:right; white-space:nowrap; width:7em; font-size:13.5px}
+  table.opt td small{color:var(--ink-3); font-size:12.5px; display:block; line-height:1.65}
+
+  ul.report{margin:12px 0 14px; padding-left:1.15em; font-size:14.5px; line-height:1.9}
+  ul.report li{margin-bottom:2px}
+
+  /* 約束 */
+  .pact{background:var(--paper-2); border-left:3px solid var(--accent); padding:18px 20px; margin-top:18px}
+  .pact dl{margin:0; display:grid; gap:12px}
+  .pact dt{font-weight:700; font-size:14.5px}
+  .pact dd{margin:2px 0 0; color:var(--ink-2); font-size:14.5px; line-height:1.75}
+  ul.no{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:8px}
+  ul.no li{font-size:13.5px; color:var(--ink-2); border:1px solid var(--rule);
+           border-radius:999px; padding:3px 12px}
+
+  /* 誰が */
+  .who{margin-top:18px; display:flex; flex-direction:column}
+  .who .row{display:grid; grid-template-columns:6.5em 1fr; gap:12px; font-size:14.5px;
+            padding:11px 0; border-bottom:1px solid var(--rule-2)}
+  .who .row:last-child{border-bottom:none}
+  .who .k{color:var(--ink-3); font-size:13px}
+  .plain{margin-top:18px; padding:16px 18px; border:1px dashed var(--rule);
+         font-size:14.5px; color:var(--ink-2); line-height:1.8}
+  .plain b{color:var(--ink)}
+
+  .contact{display:flex; flex-direction:column; gap:12px; margin-top:18px}
+  .contact a.big{font-family:var(--mono); font-size:clamp(15px,4.2vw,19px); word-break:break-all;
+                 text-decoration:none; border-bottom:1px solid var(--accent); align-self:flex-start}
+  footer{padding-block:34px 56px; font-size:12.5px; color:var(--ink-3); line-height:1.9}
+  footer .sep{margin-block:14px; border:none; border-top:1px solid var(--rule-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="mark">KOBE WEB</div>
+    <h1>ホームページとGoogleマップの更新を、<br>月8,800円で代わりにやります。</h1>
+    <div class="lede">
+      <p>営業時間の変更も、クチコミへの返信も、写真の入れ替えも、こちらでやります。
+         お店の作業は月に15分以内です。</p>
+      <p><em>神戸市東灘区でやっている、一人の仕事です。</em>LINE公式アカウントも、頼まれれば作ります。</p>
+      <p><em>15件で締め切ります。</em>一人で回せる数がそこまでだからです。</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>お預かりする3つ</h2>
+    <p class="note" style="margin-top:8px">
+      月8,800円に入っているのは、ホームページとGoogleマップの2つです。
+      LINEは別料金になります。どれか1つだけ、という頼み方もできます。
+    </p>
+    <div class="pillars">
+
+      <div class="pillar">
+        <h3>ホームページ<span class="tag">月8,800円に入っています</span></h3>
+        <p class="note">1枚もののホームページを作って、そのまま維持します。制作費は別に取りません。</p>
+        <ul>
+          <li>いまのホームページは、頼まれない限り触りません。そのまま残します</li>
+          <li>スマホで開いたときに読める形にします</li>
+          <li>営業時間やメニューが変わったら、こちらで直します</li>
+          <li>いまのサイトの更新も任せたい場合は、月2,200円で月3箇所まで直します</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <h3>Googleマップ<span class="tag">月8,800円に入っています</span></h3>
+        <p class="note">お客様がお店を決める最後の一歩で見る場所です。ここが古いままだと選ばれません。</p>
+        <ul>
+          <li>クチコミへの返信の下書き。星1〜2は受け取った当日中に</li>
+          <li>写真の入れ替えと、お知らせの投稿を月2本</li>
+          <li>臨時休業・営業時間の変更は、その日のうちに反映（日中は別の仕事のため、夜になることがあります）</li>
+          <li>お預かりするのは「管理者」の権限だけ。オーナーの権限はお店のまま</li>
+          <li>最初に情報が抜けている場合だけ、整備費11,000円をいただきます。すでに整っていれば要りません。実際に見てからお伝えします</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <h3>LINE公式アカウント<span class="tag">別料金です</span></h3>
+        <p class="note">開設と初期設定に11,000円、そのあとの運用が月2,200円です。アカウント自体はLINEに無料で作れて、月200通まで配信料もかかりません。</p>
+        <ul>
+          <li>開設と初期設定。あいさつ文、リッチメニュー、自動応答まで</li>
+          <li>配信する文章の下書きを月2本。送信ボタンはお店の方が押します</li>
+          <li>お店のスマホで開設していただき、こちらを運用担当者に入れる形です</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>料金</h2>
+    <div class="price">
+      <span class="num">8,800</span><span class="tax">円 / 月（税込）</span>
+    </div>
+    <p class="note" style="margin-top:8px">
+      ホームページとGoogleマップは、この中に入っています。ホームページの制作費は取りません。
+      解約料もありません。この金額は動かしません。<br>
+      初期費用がかかるのは、LINEの開設と、Googleマップの初期整備を頼まれた場合だけです。
+    </p>
+
+    <table class="opt">
+      <tr><th>頼む仕事を増やすとき（月額）</th><th class="p" style="text-align:right">追加（税込）</th></tr>
+      <tr><td>LINE公式アカウントの運用<small>配信文の下書き 月2本まで</small></td><td class="p">2,200円</td></tr>
+      <tr><td>ネット予約の設置と運用</td><td class="p">3,300円</td></tr>
+      <tr><td>通販（BASE・STORES）の商品登録と更新</td><td class="p">3,300円</td></tr>
+      <tr><td>写真撮影<small>四半期に1回、お店へ伺います</small></td><td class="p">2,200円</td></tr>
+      <tr><td>Instagram 投稿文の下書き<small>投稿はお店の方が押します</small></td><td class="p">2,200円</td></tr>
+      <tr><td>ホームページ更新代行<small>月3箇所まで。ページが何枚もあるサイト向け</small></td><td class="p">2,200円</td></tr>
+      <tr><td>サイト保守</td><td class="p">1,650円</td></tr>
+    </table>
+
+    <table class="opt">
+      <tr><th>頼まれたときだけ、最初に1回</th><th class="p" style="text-align:right">費用（税込）</th></tr>
+      <tr><td>LINE公式アカウントの開設と初期設定<small>あいさつ文・リッチメニュー・応答設定まで</small></td><td class="p">11,000円</td></tr>
+      <tr><td>Googleマップの初期整備<small>カテゴリ・属性・メニュー・写真を一括で整えます</small></td><td class="p">11,000円</td></tr>
+      <tr><td>お店を閉めるときの、Googleへの「閉業」の届け出</td><td class="p">いただきません</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>毎月、何にどれだけ手をかけるか</h2>
+    <p class="note" style="margin-top:10px">
+      金額が高いか安いかは、比べる相手がいないと決められません。時間なら比べられます。
+      うちは1件あたり月44分を使います。1人で回せるのは月20時間ほどなので、
+      15件でちょうど埋まります。<strong>15件で締め切るのは、この44分を守るためです。</strong>
+      件数を増やせば、1件に使える時間はそのぶん減ります。
+    </p>
+    <div class="ledger">
+      <table>
+        <tr><td>営業時間・臨時休業の反映（サイトとGoogleの両方）</td><td class="min">10 分</td></tr>
+        <tr><td>クチコミ返信の下書き</td><td class="min">6 分</td></tr>
+        <tr><td>食べログ・ホットペッパーの見直し相談</td><td class="min">7 分</td></tr>
+        <tr><td>お知らせの投稿 月2本</td><td class="min">8 分</td></tr>
+        <tr><td>月次のご報告（LINEで3行）</td><td class="min">3 分</td></tr>
+        <tr><td>請求・入金確認・突発の対応</td><td class="min">10 分</td></tr>
+        <tr class="sum"><td>合計</td><td class="min">44 分</td></tr>
+      </table>
+    </div>
+    <p class="note" style="margin-top:18px">
+      毎月末に、LINEで3行だけご報告します。中身は決まっています。
+    </p>
+    <ul class="report">
+      <li>Googleマップにお店が表示された回数</li>
+      <li>電話ボタンが押された回数</li>
+      <li>先月より伸びた検索語</li>
+    </ul>
+    <p class="note">
+      始めた月の数字を残しておくので、1年後に見比べられます。増えていなければ、そう書きます。
+    </p>
+  </section>
+
+  <section>
+    <h2>やめ方を、先に書いておきます</h2>
+    <div class="pact">
+      <dl>
+        <div><dt>1ヶ月でやめられます</dt>
+          <dd>違約金はありません。「今月で」と言っていただければ、その月で終わりです。</dd></div>
+        <div><dt>鍵はお店が持ったままです</dt>
+          <dd>Googleマップもホームページも、オーナーの権限はお店にあります。こちらは「管理者」としてお預かりするだけで、お店の側からいつでも外せます。その手順を書いた紙を、契約のときにお渡しします。</dd></div>
+        <div><dt>お店の作業は、月に15分以内です</dt>
+          <dd>写真はこちらが撮りに行きます。文章もこちらが書きます。LINEで「ええよ」と言っていただくだけです。</dd></div>
+      </dl>
+    </div>
+    <p class="note" style="margin-top:20px">やらないことも書いておきます。</p>
+    <ul class="no">
+      <li>検索順位のレポート</li><li>競合分析</li><li>ブログの更新代行</li>
+      <li>SNSの投稿代行（下書きまで）</li><li>24時間サポート</li><li>電話対応</li>
+    </ul>
+    <p class="note">電話には出ません。そのかわり、LINEは翌営業日までに必ず返します。</p>
+  </section>
+
+  <section>
+    <h2>やっている人</h2>
+    <div class="who">
+      <div class="row"><span class="k">屋号</span><span>KOBE WEB</span></div>
+      <div class="row"><span class="k">氏名</span><span>丸井 康弘（まるい やすひろ）</span></div>
+      <div class="row"><span class="k">活動場所</span><span>神戸市東灘区北青木。東灘・灘・芦屋を中心に伺います</span></div>
+      <div class="row"><span class="k">はたらき方</span><span>日中は別の仕事をしています。ご連絡への対応は夜になることがあります。それでも「その日のうち」は必ず守ります</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>ご連絡</h2>
+    <p class="note" style="margin-top:14px">
+      「うちのネットまわり、どうなってる？」とだけ送っていただければ、
+      ホームページとGoogleマップを実際に見て、気づいた点をA4 1枚にまとめてお送りします。
+      3日以内、費用はいただきません。そこで終わっていただいて構いません。
+    </p>
+    <div class="contact">
+      <a class="big" href="mailto:kobewebservice@gmail.com">kobewebservice@gmail.com</a>
+      <a class="big" href="https://lin.ee/NiVpAf5">LINEで相談　@468efowa</a>
+    </div>
+  </section>
+
+  <footer>
+    KOBE WEB　丸井 康弘<br>
+    神戸市東灘区北青木（活動拠点）／〒103-0027 東京都中央区日本橋2-16-4 remix日本橋6階（会社所在地）
+    <hr class="sep">
+    表示している金額はすべて税込です。
+    Google、Googleマップ、Googleビジネスプロフィールは Google LLC の商標です。
+    LINEは LINEヤフー株式会社 の商標です。
+  </footer>
+
+</div>
+</body>
+</html>
