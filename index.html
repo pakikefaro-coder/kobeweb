@@ -3,300 +3,675 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="神戸市東灘区の一人事業。お店のホームページとGoogleマップの更新を月8,800円で代わりに続けます。LINE公式アカウントの開設もお受けします。">
+<meta name="description" content="神戸市東灘区の一人事業。お店のGoogleマップ（Googleビジネスプロフィール）の更新を、月8,800円（税込）で代わりに続けます。いまのホームページはそのままで、スマホで見やすい1枚もののページを足します。">
 <meta property="og:title" content="KOBE WEB">
-<meta property="og:description" content="ホームページとGoogleマップの更新を、月8,800円で代わりにやります。神戸市東灘区の一人の仕事です。">
+<meta property="og:description" content="Googleマップの更新を、月8,800円（税込）で代わりにやります。いまのホームページはそのままで、スマホで見やすい1枚を足します。神戸市東灘区の一人の仕事です。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kobeweb.jp/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2226%22>📍</text></svg>">
-<title>KOBE WEB</title>
+<title>Googleマップの更新代行 月8,800円（税込）｜KOBE WEB</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
   :root{
-    --paper:#FBFBF9;
-    --paper-2:#F2F2EE;
-    --ink:#14161A;
-    --ink-2:#565C60;
-    --ink-3:#7C8286;
-    --rule:#D9DAD4;
-    --rule-2:#E9E9E4;
-    --accent:#1F5B4E;
-    --accent-soft:#E3EDE9;
+    --paper:#F6F4EF;
+    --paper-2:#FFFFFF;
+    --tint:#ECEFF3;
+    --ink:#15181E;
+    --ink-2:#4F5560;
+    --ink-3:#6B717B;
+    --rule:#D8D9D6;
+    --rule-2:#E6E6E2;
+    --navy:#1D3557;
+    --navy-2:#2A4A74;
+    --navy-soft:#E4EAF2;
+    --on-navy:#F6F4EF;
+    --on-navy-2:#C3CEDD;
+    --warn:#A2472E;
+    --ok:#1D3557;
     --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
     --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
     --mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+    --maxw:1120px;
+    --pad:clamp(16px,5vw,40px);
+    --sectiony:clamp(64px,9vw,112px);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#101214; --paper-2:#181B1E; --ink:#E9E9E4; --ink-2:#A8AEB1;
-      --ink-3:#848A8D; --rule:#2C3033; --rule-2:#22262A;
-      --accent:#78B7A5; --accent-soft:#172A26;
+      --paper:#111317; --paper-2:#1A1D22; --tint:#161A20; --ink:#E9E8E3; --ink-2:#AEB3BA;
+      --ink-3:#8C929A; --rule:#2E3238; --rule-2:#24282D;
+      --navy:#9DB5D6; --navy-2:#B9CBE3; --navy-soft:#1C2633;
+      --on-navy:#F6F4EF; --on-navy-2:#C3CEDD; --warn:#E0896E; --ok:#9DB5D6;
     }
+    :root:not([data-theme="light"]) .band,
+    :root:not([data-theme="light"]) .price-card{background:#1B2B44}
+    :root:not([data-theme="light"]) .btn--solid{background:#2A4A74; color:#F6F4EF}
+    :root:not([data-theme="light"]) .btn--light{background:#F6F4EF; color:#1D3557}
   }
   :root[data-theme="dark"]{
-    --paper:#101214; --paper-2:#181B1E; --ink:#E9E9E4; --ink-2:#A8AEB1;
-    --ink-3:#848A8D; --rule:#2C3033; --rule-2:#22262A;
-    --accent:#78B7A5; --accent-soft:#172A26;
+    --paper:#111317; --paper-2:#1A1D22; --tint:#161A20; --ink:#E9E8E3; --ink-2:#AEB3BA;
+    --ink-3:#8C929A; --rule:#2E3238; --rule-2:#24282D;
+    --navy:#9DB5D6; --navy-2:#B9CBE3; --navy-soft:#1C2633;
+    --warn:#E0896E; --ok:#9DB5D6;
   }
+  :root[data-theme="dark"] .band, :root[data-theme="dark"] .price-card{background:#1B2B44}
+  :root[data-theme="dark"] .btn--solid{background:#2A4A74; color:#F6F4EF}
 
   *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
   body{
     margin:0; background:var(--paper); color:var(--ink);
-    font-family:var(--sans); font-size:16px; line-height:1.85;
-    -webkit-font-smoothing:antialiased;
+    font-family:var(--sans); font-size:16px; line-height:1.9; letter-spacing:.015em;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
   }
-  .wrap{max-width:680px; margin:0 auto; padding-inline:20px; padding-block:0}
-  h1,h2,h3{font-family:var(--serif); font-weight:700; text-wrap:balance; line-height:1.45}
+  h1,h2,h3,p,li,dd,dt,td,.who span,footer{word-break:auto-phrase; line-break:strict}
+  h1,h2,h3{font-family:var(--serif); font-weight:700; line-height:1.45; letter-spacing:.02em; text-wrap:balance}
   p{margin:0}
-  a{color:var(--accent); text-underline-offset:3px}
-  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  a{color:var(--navy); text-underline-offset:3px}
+  a:focus-visible,.btn:focus-visible{outline:2.5px solid var(--navy); outline-offset:3px}
+  .nb{display:inline-block}
+  .wrap{max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad)}
+  .sec{padding-block:var(--sectiony)}
+  .sec--tint{background:var(--tint)}
+  .sec--white{background:var(--paper-2)}
 
-  header{padding-block:56px 38px; border-bottom:2px solid var(--ink)}
-  .mark{font-family:var(--mono); font-size:13px; letter-spacing:.22em; color:var(--ink-2)}
-  h1{font-size:clamp(27px,6.6vw,38px); margin:14px 0 18px; letter-spacing:.02em}
-  .lede{font-size:17px; display:flex; flex-direction:column; gap:10px}
-  .lede em{font-style:normal; font-weight:700}
+  .eyebrow{font-family:var(--sans); font-weight:700; font-size:.74rem; letter-spacing:.24em;
+    color:var(--navy); display:inline-flex; align-items:center; gap:.7em; margin:0 0 14px}
+  .eyebrow::before{content:""; width:26px; height:2px; background:var(--navy); display:inline-block}
+  h2{font-size:clamp(1.55rem,3.6vw,2.3rem); margin:0 0 14px}
+  .lead{color:var(--ink-2); max-width:40em}
 
-  section{padding-block:40px; border-bottom:1px solid var(--rule)}
-  section:last-of-type{border-bottom:none}
-  h2{font-size:20px; margin:0 0 4px}
-  .note{font-size:14.5px; color:var(--ink-2); line-height:1.8}
+  /* ボタン */
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:.6em; font-family:var(--sans);
+    font-weight:700; font-size:.98rem; letter-spacing:.04em; padding:.9em 1.4em; border-radius:6px;
+    border:1.5px solid transparent; text-decoration:none; line-height:1.3; min-height:50px}
+  .btn svg{width:20px; height:20px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8;
+    stroke-linecap:round; stroke-linejoin:round}
+  .btn--solid{background:var(--navy); color:#fff}
+  .btn--solid:hover{background:var(--navy-2)}
+  .btn--ghost{background:transparent; color:var(--ink); border-color:var(--ink-3)}
+  .btn--ghost:hover{border-color:var(--ink)}
+  .btn--light{background:var(--on-navy); color:#1D3557}
+  .btn--line-light{background:transparent; color:var(--on-navy); border-color:var(--on-navy-2)}
+  .btns{display:flex; flex-wrap:wrap; gap:12px}
 
-  /* 3本柱 */
-  .pillars{display:grid; grid-template-columns:1fr; gap:0; margin-top:20px;
-           border-top:2px solid var(--ink); border-bottom:2px solid var(--ink)}
-  .pillar{padding:20px 0; border-bottom:1px solid var(--rule-2)}
-  .pillar:last-child{border-bottom:none}
-  .pillar h3{font-size:17px; margin:0 0 8px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
-  .pillar h3 .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
-                  color:var(--accent); border:1px solid var(--accent); border-radius:2px;
-                  padding:1px 6px; font-weight:400}
-  .pillar ul{margin:8px 0 0; padding-left:1.15em; color:var(--ink-2); font-size:14.5px; line-height:1.8}
-  .pillar li{margin-bottom:3px}
+  /* 上の帯 */
+  .top{border-bottom:1px solid var(--rule); background:var(--paper)}
+  .top .wrap{display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:64px}
+  .logo{font-family:var(--mono); font-weight:600; font-size:15px; letter-spacing:.16em; color:var(--ink);
+    text-decoration:none; display:flex; align-items:center; gap:8px; white-space:nowrap}
+  .logo svg{width:22px; height:22px; fill:none; stroke:var(--navy); stroke-width:1.8}
+  .top .btns{gap:8px; flex-wrap:nowrap}
+  .top .btn{min-height:40px; padding:.5em .85em; font-size:.86rem; white-space:nowrap}
+  .top .btn .t-long{display:none}
+  @media (min-width:720px){ .top .btn .t-long{display:inline} }
 
-  /* 時間の内訳 */
-  .ledger{margin-top:18px; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink)}
-  .ledger table{width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums}
-  .ledger td{padding:8px 0; border-bottom:1px solid var(--rule-2); vertical-align:baseline; font-size:15px}
-  .ledger tr:last-child td{border-bottom:none}
-  .ledger td.min{font-family:var(--mono); text-align:right; white-space:nowrap; width:5.2em; font-size:13.5px}
-  .ledger tr.sum td{border-top:1.5px solid var(--ink); border-bottom:none; padding-top:11px; font-weight:700}
-  .ledger tr.sum td.min{font-size:16px; color:var(--accent)}
+  /* ファーストビュー */
+  .hero{padding-block:clamp(28px,6vw,80px) clamp(56px,8vw,96px)}
+  .hero .wrap{display:grid; grid-template-columns:1fr; grid-template-areas:"copy" "fig" "rest"; gap:30px}
+  .hero-copy{min-width:0; grid-area:copy}
+  .hero-rest{min-width:0; grid-area:rest}
+  .compare{grid-area:fig}
+  .hero h1{font-size:clamp(1.8rem,4.2vw,2.75rem); margin:0 0 18px; letter-spacing:.01em}
+  .hero h1 .sub{display:block; font-size:.5em; margin-top:14px; color:var(--ink-2); font-weight:600; letter-spacing:.02em}
+  .hero .lede{display:flex; flex-direction:column; gap:10px; color:var(--ink-2); font-size:16.5px; max-width:34em}
+  .hero .lede b{color:var(--ink)}
+  .hero .btns{margin-top:26px}
+  .hero h1{margin-bottom:0}
+  .facts{display:grid; grid-template-columns:repeat(3,1fr); margin:34px 0 0; padding:0; list-style:none;
+    border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+  .facts li{padding:14px 12px; border-left:1px solid var(--rule); line-height:1.4}
+  .facts li:first-child{border-left:none; padding-left:0}
+  .facts .k{display:block; font-size:12px; color:var(--ink-3); letter-spacing:.06em}
+  .facts .v{display:block; font-family:var(--serif); font-weight:700; font-size:clamp(17px,2.4vw,22px); margin-top:4px; white-space:nowrap}
+  .facts .v small{font-family:var(--sans); font-size:11px; font-weight:500; color:var(--ink-3); margin-left:2px}
+  @media (min-width:960px){
+    .hero .wrap{grid-template-columns:minmax(0,1.2fr) minmax(0,.95fr); grid-template-areas:"copy fig" "rest fig"; gap:26px 56px; align-items:start}
+    .hero-rest{align-self:start}
+    .compare{align-self:center}
+  }
+
+  /* 図：Googleマップの欄 */
+  .compare{min-width:0}
+  .compare .pair{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:stretch}
+  .compare .pair > div{display:flex; flex-direction:column; min-width:0}
+  .compare .phone{flex:1; display:flex; flex-direction:column}
+  .compare .scr{flex:1}
+  .phone{min-width:0; background:var(--ink); border-radius:26px; padding:8px; box-shadow:0 18px 40px -24px rgba(20,24,30,.55)}
+  .phone .scr{background:#fff; color:#1F1F1F; border-radius:19px; overflow:hidden; font-family:var(--sans);
+    font-size:11px; line-height:1.45; letter-spacing:0}
+  .phone .notch{height:14px; display:flex; justify-content:center; align-items:center}
+  .phone .notch i{display:block; width:34%; height:5px; border-radius:3px; background:#D6D6D6}
+  .phone .search{margin:2px 8px 8px; border:1px solid #E1E1E1; border-radius:14px; padding:4px 9px; color:#777; font-size:10px;
+    display:flex; align-items:center; gap:5px; white-space:nowrap; overflow:hidden}
+  .phone .search svg{width:10px; height:10px; flex:none; stroke:#888; fill:none; stroke-width:2}
+  .ph{height:clamp(62px,9vw,96px); display:grid; gap:2px}
+  .ph.old{position:relative; display:block}
+  .ph.old svg{width:100%; height:100%; display:block; filter:grayscale(.85) contrast(.8) brightness(1.08)}
+  .ph.old span{position:absolute; left:6px; bottom:6px; background:rgba(0,0,0,.55); color:#fff; font-size:9.5px; padding:1px 6px; border-radius:3px}
+  .ph.new{grid-template-columns:2fr 1fr; grid-template-rows:1fr 1fr}
+  .ph.new svg{width:100%; height:100%; display:block}
+  .ph.new > div:first-child{grid-row:1 / span 2}
+  .info{padding:8px 9px 10px}
+  .info .nm{font-weight:700; font-size:13px; color:#1F1F1F}
+  .info .cat{color:#666; font-size:10px}
+  .info .st{color:#B06000; font-size:10.5px; letter-spacing:.04em}
+  .info .st span{color:#666; letter-spacing:0}
+  .row{border-top:1px solid #EEE; padding:6px 0; margin-top:6px; display:flex; gap:6px; align-items:flex-start}
+  .row svg{width:13px; height:13px; flex:none; margin-top:1px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+  .row .bad{stroke:#A2472E}
+  .row .good{stroke:#1D3557}
+  .row b{display:block; font-weight:700; font-size:10.5px}
+  .row .s{color:#666; font-size:10px; display:block}
+  .row .open{color:#1E7A46; font-weight:700}
+  .row .shut{color:#A2472E; font-weight:700}
+  .row .rv{color:#444; font-size:10px; display:block}
+  .row .reply{display:block; margin-top:3px; padding:3px 6px; background:#F1F3F6; border-radius:4px; color:#333; font-size:9.5px}
+  .cap{display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; margin:0 0 8px; letter-spacing:.04em}
+  .cap::before{content:""; width:8px; height:8px; border-radius:50%; flex:none}
+  .cap.c-old{color:var(--warn)} .cap.c-old::before{background:var(--warn)}
+  .cap.c-new{color:var(--navy)} .cap.c-new::before{background:var(--navy)}
+  .compare .note-fig{font-size:11.5px; color:var(--ink-3); margin-top:12px; line-height:1.6}
+  @media (max-width:420px){
+    .compare .pair{gap:8px}
+    .phone{padding:6px; border-radius:22px}
+    .phone .scr{border-radius:17px}
+    .info{padding:7px 7px 9px}
+  }
+
+  /* 図：スマホで開いたHP */
+  .hpfig svg text{font-family:var(--sans)}
+  .hpfig svg .mn{font-family:var(--serif)}
+  .phone.mini{padding:5px; border-radius:20px}
+  .phone.mini svg{display:block; width:100%; height:auto; border-radius:15px}
+  .woes{list-style:none; margin:30px 0 0; padding:0; display:grid; grid-template-columns:1fr; border-top:1.5px solid var(--ink)}
+  .woe{display:grid; grid-template-columns:148px minmax(0,1fr); gap:18px; align-items:center; padding:20px 0; border-bottom:1px solid var(--rule); min-width:0}
+  .woe .n{font-family:var(--mono); font-weight:600; font-size:12px; color:var(--warn); letter-spacing:.1em; display:block; margin-bottom:2px}
+  .woe h3{font-size:1.12rem; margin:0 0 6px; color:var(--ink)}
+  .woe p{color:var(--ink-2); font-size:14.5px; line-height:1.85}
+  .fix{margin-top:40px; display:grid; grid-template-columns:1fr; gap:26px; align-items:center}
+  .sec--tint .card.fix{background:var(--paper-2); box-shadow:0 0 0 3px var(--navy-soft)}
+  .fix .phone{width:min(220px,70%); justify-self:center}
+  .fix .desc{font-size:15px}
+  .hpfig .note-fig{font-size:11.5px; color:var(--ink-3); margin-top:14px; line-height:1.6}
+  @media (min-width:900px){
+    .woes{grid-template-columns:repeat(3,1fr)}
+    .woe{grid-template-columns:1fr; align-items:start; align-content:start; padding:28px 24px 26px 0; border-bottom:none}
+    .woe + .woe{padding-left:24px; border-left:1px solid var(--rule)}
+    .woe .phone{width:190px}
+    .fix{grid-template-columns:250px minmax(0,1fr); gap:48px; padding:34px 40px}
+    .fix .phone{width:100%}
+  }
+
+  /* 3つ */
+  .svc{display:grid; grid-template-columns:1fr; gap:16px; margin-top:34px}
+  .card{background:var(--paper-2); border:1px solid var(--rule); border-radius:8px; padding:26px 22px 24px; min-width:0}
+  .sec--white .card{background:var(--paper)}
+  .card .ic{width:48px; height:48px; border-radius:8px; background:var(--navy-soft); display:grid; place-items:center; margin-bottom:16px}
+  .card .ic svg{width:26px; height:26px; fill:none; stroke:var(--navy); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
+  .card .lbl{font-size:12px; font-weight:700; letter-spacing:.08em; color:var(--navy); margin-bottom:4px}
+  .card .lbl.ex{color:var(--ink-3)}
+  .card h3{font-size:1.3rem; margin:0 0 8px}
+  .card .desc{color:var(--ink-2); font-size:14.5px; line-height:1.85}
+  .card ul{margin:14px 0 0; padding:14px 0 0; list-style:none; border-top:1px solid var(--rule-2); font-size:14.5px; line-height:1.75}
+  .card li{position:relative; padding-left:1.25em; margin-bottom:8px}
+  .card li::before{content:""; position:absolute; left:0; top:.62em; width:6px; height:6px; border-radius:50%; background:var(--navy)}
+  .card.main{border-color:var(--navy); border-width:1.5px}
+  .sec--white .card.main{background:var(--paper-2); box-shadow:0 0 0 3px var(--navy-soft)}
+  @media (min-width:900px){ .svc{grid-template-columns:1.15fr 1fr 1fr} }
 
   /* 料金 */
-  .price{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:16px}
-  .price .num{font-family:var(--mono); font-weight:600; font-size:34px; letter-spacing:-.02em}
-  .price .tax{font-size:14px; color:var(--ink-2)}
-  table.opt{width:100%; border-collapse:collapse; margin-top:20px; font-variant-numeric:tabular-nums}
-  table.opt th{text-align:left; font-size:11px; letter-spacing:.14em; color:var(--ink-3);
-               font-weight:500; font-family:var(--mono); padding-bottom:6px; border-bottom:1px solid var(--rule)}
-  table.opt td{padding:9px 0; border-bottom:1px solid var(--rule-2); font-size:14.5px; vertical-align:top}
-  table.opt td.p{font-family:var(--mono); text-align:right; white-space:nowrap; width:7em; font-size:13.5px}
+  .price-grid{display:grid; grid-template-columns:1fr; gap:28px; margin-top:34px; align-items:start}
+  .price-card{background:var(--navy); color:var(--on-navy); border-radius:8px; padding:30px 26px}
+  .price-card .k{font-size:13px; letter-spacing:.1em; color:var(--on-navy-2); font-weight:700}
+  .price-card .num{font-family:var(--mono); font-weight:600; font-size:clamp(46px,7vw,60px); letter-spacing:-.02em; line-height:1.1; margin-top:8px}
+  .price-card .num small{font-family:var(--sans); font-size:16px; font-weight:500; margin-left:6px; letter-spacing:.02em}
+  .price-card ul{list-style:none; margin:20px 0 0; padding:18px 0 0; border-top:1px solid rgba(246,244,239,.22); font-size:14.5px; line-height:1.8}
+  .price-card li{display:flex; gap:9px; margin-bottom:7px}
+  .price-card li svg{width:16px; height:16px; flex:none; margin-top:.3em; fill:none; stroke:var(--on-navy); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+  .price-card .fine{font-size:13px; color:var(--on-navy-2); margin-top:14px; line-height:1.75}
+  .tables{min-width:0; display:flex; flex-direction:column; gap:26px}
+  table.opt{width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums}
+  table.opt caption{text-align:left; font-family:var(--serif); font-weight:700; font-size:1.08rem; padding-bottom:8px}
+  table.opt th{text-align:left; font-size:12px; letter-spacing:.06em; color:var(--ink-3); font-weight:500; padding:0 0 6px; border-bottom:1.5px solid var(--ink)}
+  table.opt td{padding:11px 0; border-bottom:1px solid var(--rule); font-size:14.5px; vertical-align:top}
+  table.opt td.p, table.opt th.p{text-align:right; white-space:nowrap; width:7.5em; padding-left:12px}
+  table.opt td.p{font-family:var(--mono); font-size:14px; font-weight:600}
   table.opt td small{color:var(--ink-3); font-size:12.5px; display:block; line-height:1.65}
+  @media (min-width:900px){ .price-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:48px} }
 
-  ul.report{margin:12px 0 14px; padding-left:1.15em; font-size:14.5px; line-height:1.9}
-  ul.report li{margin-bottom:2px}
+  /* 時間の内訳 */
+  .time-grid{display:grid; grid-template-columns:1fr; gap:30px; margin-top:30px}
+  .bars{list-style:none; margin:0; padding:0; border-top:1.5px solid var(--ink)}
+  .bars li{display:grid; grid-template-columns:1fr auto; gap:4px 12px; padding:12px 0; border-bottom:1px solid var(--rule); font-size:14.5px; line-height:1.6}
+  .bars .m{font-family:var(--mono); font-weight:600; white-space:nowrap}
+  .bars .bar{grid-column:1 / -1; height:6px; background:var(--rule-2); border-radius:3px; overflow:hidden}
+  .bars .bar i{display:block; height:100%; background:var(--navy); border-radius:3px}
+  .bars li.sum{border-bottom:none; font-weight:700; font-size:16px}
+  .bars li.sum .m{color:var(--navy); font-size:18px}
+  .report{background:var(--paper-2); border:1px solid var(--rule); border-radius:8px; padding:22px 22px 20px; min-width:0}
+  .report h3{font-size:1.08rem; margin:0 0 10px}
+  .report ol{margin:12px 0 14px; padding:0; list-style:none; counter-reset:r}
+  .report ol li{counter-increment:r; display:flex; gap:10px; align-items:baseline; padding:8px 0; border-bottom:1px solid var(--rule-2); font-size:14.5px}
+  .report ol li::before{content:counter(r); font-family:var(--mono); font-weight:600; color:var(--navy); font-size:13px; width:1.2em; flex:none}
+  .report p{font-size:14px; color:var(--ink-2)}
+  @media (min-width:900px){ .time-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:48px; align-items:start} }
 
-  /* 約束 */
-  .pact{background:var(--paper-2); border-left:3px solid var(--accent); padding:18px 20px; margin-top:18px}
-  .pact dl{margin:0; display:grid; gap:12px}
-  .pact dt{font-weight:700; font-size:14.5px}
-  .pact dd{margin:2px 0 0; color:var(--ink-2); font-size:14.5px; line-height:1.75}
-  ul.no{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:8px}
-  ul.no li{font-size:13.5px; color:var(--ink-2); border:1px solid var(--rule);
-           border-radius:999px; padding:3px 12px}
+  /* やめ方 */
+  .pacts{display:grid; grid-template-columns:1fr; gap:0; margin-top:30px; border-top:1.5px solid var(--ink)}
+  .pact{padding:22px 0; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:auto 1fr; gap:4px 16px; min-width:0}
+  .pact .n{font-family:var(--serif); font-weight:700; font-size:2rem; color:var(--navy); line-height:1; grid-row:1 / span 2; padding-top:2px}
+  .pact h3{font-size:1.12rem; margin:0}
+  .pact p{color:var(--ink-2); font-size:14.5px; line-height:1.85}
+  @media (min-width:900px){
+    .pacts{grid-template-columns:repeat(3,1fr)}
+    .pact{padding:26px 24px 26px 0; border-bottom:none}
+    .pact + .pact{padding-left:24px; border-left:1px solid var(--rule)}
+  }
+  .nots{margin-top:46px; display:grid; grid-template-columns:1fr; gap:26px}
+  .nots h3{font-size:1.12rem; margin:0 0 6px}
+  .nolist{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:0 18px}
+  .nolist li{display:flex; gap:9px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--rule); font-size:14.5px; line-height:1.6}
+  .nolist svg{width:15px; height:15px; flex:none; margin-top:.25em; fill:none; stroke:var(--ink-3); stroke-width:2; stroke-linecap:round}
+  .nots .tel{background:var(--paper-2); border-left:3px solid var(--navy); padding:16px 18px; font-size:14.5px; line-height:1.8}
+  .nots .tel b{display:block; font-family:var(--serif); font-size:1.05rem; margin-bottom:2px}
+  @media (min-width:900px){ .nots{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:48px; align-items:end} }
 
-  /* 誰が */
-  .who{margin-top:18px; display:flex; flex-direction:column}
-  .who .row{display:grid; grid-template-columns:6.5em 1fr; gap:12px; font-size:14.5px;
-            padding:11px 0; border-bottom:1px solid var(--rule-2)}
-  .who .row:last-child{border-bottom:none}
+  /* やっている人 */
+  .who{margin-top:26px; border-top:1.5px solid var(--ink); max-width:760px}
+  .who .r{display:grid; grid-template-columns:7.2em 1fr; gap:12px; font-size:14.5px; padding:13px 0; border-bottom:1px solid var(--rule)}
   .who .k{color:var(--ink-3); font-size:13px}
-  .plain{margin-top:18px; padding:16px 18px; border:1px dashed var(--rule);
-         font-size:14.5px; color:var(--ink-2); line-height:1.8}
-  .plain b{color:var(--ink)}
 
-  .contact{display:flex; flex-direction:column; gap:12px; margin-top:18px}
-  .contact a.big{font-family:var(--mono); font-size:clamp(15px,4.2vw,19px); word-break:break-all;
-                 text-decoration:none; border-bottom:1px solid var(--accent); align-self:flex-start}
+  /* 末尾の連絡 */
+  .band{background:var(--navy); color:var(--on-navy)}
+  .band .eyebrow{color:var(--on-navy-2)} .band .eyebrow::before{background:var(--on-navy-2)}
+  .band h2{color:var(--on-navy)}
+  .band .lead{color:var(--on-navy-2); max-width:38em}
+  .band .btns{margin-top:28px}
+  .band .addr{margin-top:22px; font-family:var(--mono); font-size:14px; color:var(--on-navy-2); line-height:1.9; word-break:break-all}
+  .band .addr a{color:var(--on-navy)}
+  .band a:focus-visible,.band .btn:focus-visible{outline-color:var(--on-navy)}
+
   footer{padding-block:34px 56px; font-size:12.5px; color:var(--ink-3); line-height:1.9}
-  footer .sep{margin-block:14px; border:none; border-top:1px solid var(--rule-2)}
+  footer .sep{margin-block:14px; border:none; border-top:1px solid var(--rule)}
+
+  @media (max-width:359px){ .top .btn--ghost{display:none} }
+  @media (max-width:560px){
+    .hero .btns .btn, .band .btns .btn{flex:1 1 100%}
+    .nolist{grid-template-columns:1fr}
+    .facts li{padding:12px 8px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero-copy,.hero-rest,.compare{animation:rise .7s ease both}
+    .compare{animation-delay:.12s}
+    @keyframes rise{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <div class="mark">KOBE WEB</div>
-    <h1>ホームページとGoogleマップの更新を、<br>月8,800円で代わりにやります。</h1>
-    <div class="lede">
-      <p>営業時間の変更も、クチコミへの返信も、写真の入れ替えも、こちらでやります。
-         お店の作業は月に15分以内です。</p>
-      <p><em>神戸市東灘区でやっている、一人の仕事です。</em>LINE公式アカウントも、頼まれれば作ります。</p>
-      <p><em>15件で締め切ります。</em>一人で回せる数がそこまでだからです。</p>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6.1-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.9-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>KOBE WEB</a>
+    <div class="btns">
+      <a class="btn btn--solid" href="https://lin.ee/NiVpAf5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>LINE<span class="t-long">で相談</span></span></a>
+      <a class="btn btn--ghost" href="mailto:kobewebservice@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>メール</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section>
-    <h2>お預かりする3つ</h2>
-    <p class="note" style="margin-top:8px">
-      月8,800円に入っているのは、ホームページとGoogleマップの2つです。
-      LINEは別料金になります。どれか1つだけ、という頼み方もできます。
-    </p>
-    <div class="pillars">
-
-      <div class="pillar">
-        <h3>ホームページ<span class="tag">月8,800円に入っています</span></h3>
-        <p class="note">1枚もののホームページを作って、そのまま維持します。制作費は別に取りません。</p>
-        <ul>
-          <li>いまのホームページは、頼まれない限り触りません。そのまま残します</li>
-          <li>スマホで開いたときに読める形にします</li>
-          <li>営業時間やメニューが変わったら、こちらで直します</li>
-          <li>いまのサイトの更新も任せたい場合は、月2,200円で月3箇所まで直します</li>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Googleマップの更新代行</p>
+        <h1><span class="nb">Googleマップの更新を、</span><span class="nb">月8,800円で</span><span class="nb">代わりにやります。</span><span class="sub"><span class="nb">いまのホームページはそのままで、</span><span class="nb">スマホで見やすい1枚を足します。</span></span></h1>
+      </div>
+      <div class="hero-rest">
+        <div class="lede">
+          <p>営業時間の変更も、写真の入れ替えも、こちらでやります。クチコミへの返信は、こちらが文を書いてLINEでお送りし、「ええよ」と返していただいたら、こちらで載せます。基本の月8,800円の分なら、お店の作業は月に15分ほどです（始める月を除きます）。</p>
+          <p><b>神戸市東灘区でやっている、一人の仕事です。</b>LINE公式アカウントも、別料金で作ります。</p>
+        </div>
+        <div class="btns">
+          <a class="btn btn--solid" href="https://lin.ee/NiVpAf5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>LINEで相談する</a>
+          <a class="btn btn--ghost" href="mailto:kobewebservice@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>メールで相談する</a>
+        </div>
+        <ul class="facts">
+          <li><span class="k">月額（税込）</span><span class="v">8,800<small>円</small></span></li>
+          <li><span class="k">お店の作業</span><span class="v">月15<small>分ほど</small></span></li>
+          <li><span class="k">お受けする数</span><span class="v">15<small>件で締切</small></span></li>
         </ul>
       </div>
 
-      <div class="pillar">
-        <h3>Googleマップ<span class="tag">月8,800円に入っています</span></h3>
-        <p class="note">お客様がお店を決める最後の一歩で見る場所です。ここが古いままだと選ばれません。</p>
-        <ul>
-          <li>クチコミへの返信の下書き。星1〜2は受け取った当日中に</li>
-          <li>写真の入れ替えと、お知らせの投稿を月2本</li>
-          <li>臨時休業・営業時間の変更は、その日のうちに反映（日中は別の仕事のため、夜になることがあります）</li>
-          <li>お預かりするのは「管理者」の権限だけ。オーナーの権限はお店のまま</li>
-          <li>最初に情報が抜けている場合だけ、整備費11,000円をいただきます。すでに整っていれば要りません。実際に見てからお伝えします</li>
-        </ul>
+      <figure class="compare" style="margin:0" aria-label="Googleマップのお店の欄。更新されていない欄と、更新を続けている欄の比べ">
+        <div class="pair">
+          <div>
+            <p class="cap c-old">更新されていない欄</p>
+            <div class="phone" aria-hidden="true"><div class="scr">
+              <div class="notch"><i></i></div>
+              <div class="search"><svg viewBox="0 0 12 12"><circle cx="5" cy="5" r="3.5"/><path d="M8 8l3 3"/></svg>喫茶 青い木</div>
+              <div class="ph old"><svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid slice"><rect width="120" height="80" fill="#D8D2C6"/><rect x="22" y="26" width="76" height="54" fill="#9C8A74"/><path d="M14 26h92l-6-12H20z" fill="#5E6670"/><rect x="50" y="44" width="20" height="36" fill="#D8D2C6"/><rect x="30" y="38" width="14" height="14" fill="#C7C1B4"/><rect x="76" y="38" width="14" height="14" fill="#C7C1B4"/></svg><span>写真 3年前</span></div>
+              <div class="info">
+                <div class="nm">喫茶 青い木</div>
+                <div class="cat">喫茶店</div>
+                <div class="st">★★★★☆ <span>4.1</span></div>
+                <div class="row"><svg class="bad" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M7 4v3.5M7 9.8v.2"/></svg><span><b>営業時間</b><span class="shut">店舗情報なし</span></span></div>
+                <div class="row"><svg class="bad" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M7 4v3.5M7 9.8v.2"/></svg><span><b>最新の情報</b><span class="s">2年前の投稿</span></span></div>
+                <div class="row"><svg class="bad" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M7 4v3.5M7 9.8v.2"/></svg><span><b>クチコミ</b><span class="rv">「行ったら<span class="nb">閉まってた」</span></span><span class="s">返信なし</span></span></div>
+              </div>
+            </div></div>
+          </div>
+          <div>
+            <p class="cap c-new">更新を続けている欄</p>
+            <div class="phone" aria-hidden="true"><div class="scr">
+              <div class="notch"><i></i></div>
+              <div class="search"><svg viewBox="0 0 12 12"><circle cx="5" cy="5" r="3.5"/><path d="M8 8l3 3"/></svg>喫茶 青い木</div>
+              <div class="ph new">
+                <div><svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid slice"><rect width="120" height="80" fill="#D9C7AE"/><rect y="52" width="120" height="28" fill="#B79A76"/><ellipse cx="60" cy="56" rx="30" ry="7" fill="#F4EFE6"/><path d="M42 34h36l-4 22H46z" fill="#FFFFFF"/><path d="M78 39c8 0 8 10 0 10" stroke="#FFFFFF" stroke-width="3" fill="none"/><ellipse cx="60" cy="34" rx="18" ry="3.5" fill="#6B4A2E"/><path d="M54 22c-3-5 3-7 0-12M64 22c-3-5 3-7 0-12" stroke="#FFFFFF" stroke-width="2" fill="none" opacity=".8"/></svg></div>
+                <div><svg viewBox="0 0 60 40" preserveAspectRatio="xMidYMid slice"><rect width="60" height="40" fill="#E7DCCB"/><rect x="10" y="14" width="40" height="26" fill="#8A6D4E"/><path d="M6 14h48l-4-8H10z" fill="#1D3557"/><rect x="24" y="22" width="12" height="18" fill="#E7DCCB"/></svg></div>
+                <div><svg viewBox="0 0 60 40" preserveAspectRatio="xMidYMid slice"><rect width="60" height="40" fill="#CBD5C4"/><ellipse cx="30" cy="24" rx="20" ry="9" fill="#FFFFFF"/><path d="M18 22h24l-3 6H21z" fill="#D49A5A"/><path d="M22 20h16" stroke="#9B5E2A" stroke-width="2"/></svg></div>
+              </div>
+              <div class="info">
+                <div class="nm">喫茶 青い木</div>
+                <div class="cat">喫茶店</div>
+                <div class="st">★★★★☆ <span>4.1</span></div>
+                <div class="row"><svg class="good" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M4.6 7.2l1.7 1.7 3.2-3.4"/></svg><span><b>営業時間</b><span class="s"><span class="open">営業中</span> ・ 18時に閉店</span></span></div>
+                <div class="row"><svg class="good" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M4.6 7.2l1.7 1.7 3.2-3.4"/></svg><span><b>お知らせ</b><span class="s">来週火曜は臨時休業します（2日前）</span></span></div>
+                <div class="row"><svg class="good" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M4.6 7.2l1.7 1.7 3.2-3.4"/></svg><span><b>クチコミ</b><span class="rv">「行ったら<span class="nb">閉まってた」</span></span><span class="reply">オーナーの返信：ご迷惑をおかけしました。休みの日はここでお知らせしています。</span></span></div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+        <figcaption class="note-fig">図はイメージです。お店は架空で、星の数は左右とも同じにしてあります。違うのは、情報が新しいかどうかだけです。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec sec--tint hpfig" id="homepage">
+    <div class="wrap">
+      <p class="eyebrow">HOMEPAGE</p>
+      <h2><span class="nb">いまのホームページ、</span><span class="nb">スマホで開くと</span><span class="nb">こう見えていませんか</span></h2>
+      <p class="lead">Googleマップでお店を見つけた人は、「ウェブサイト」を押して、そのままスマホでホームページを開きます。パソコン向けに作ったページだと、こんな画面になることがあります。</p>
+
+      <ul class="woes">
+        <li class="woe">
+          <div class="phone mini" aria-hidden="true"><svg viewBox="0 0 180 330">
+            <rect width="180" height="330" fill="#fff"/><rect x="72" y="5" width="36" height="5" rx="2.5" fill="#D6D6D6"/>
+            <rect x="8" y="15" width="164" height="21" rx="10.5" fill="#F1F3F4"/>
+            <rect x="16" y="24.5" width="8" height="6.5" rx="1" fill="#5F6368"/><path d="M17.8 24.5v-1.6a2.2 2.2 0 0 1 4.4 0v1.6" fill="none" stroke="#5F6368" stroke-width="1.3"/>
+            <text x="30" y="29.5" font-size="8.5" fill="#3C4043">kissa-aoiki.example</text>
+            <rect y="42" width="180" height="10" fill="#5B4636"/>
+            <text x="5" y="49" font-size="4.6" fill="#fff">喫茶 青い木</text>
+            <text x="96" y="48.8" font-size="3.2" fill="#E8DCCB">HOME　MENU　ACCESS　CONTACT</text>
+            <rect y="52" width="180" height="46" fill="#D9C7AE"/><rect y="84" width="180" height="14" fill="#B79A76"/>
+            <ellipse cx="128" cy="86" rx="16" ry="3.5" fill="#F4EFE6"/><path d="M118 71h20l-2 14h-16z" fill="#fff"/><ellipse cx="128" cy="71" rx="10" ry="2" fill="#6B4A2E"/>
+            <text class="mn" x="8" y="66" font-size="5.5" fill="#3D2B1C" font-weight="700">ようこそ、喫茶 青い木へ</text>
+            <text x="8" y="73" font-size="3" fill="#3D2B1C">自家焙煎のコーヒーと、手作りのお菓子</text>
+            <g font-size="4" font-weight="700" fill="#3D2B1C"><text x="6" y="108">営業時間</text><text x="64" y="108">メニュー</text><text x="122" y="108">アクセス</text></g>
+            <g fill="#5B4636"><rect x="6" y="110" width="52" height=".6"/><rect x="64" y="110" width="52" height=".6"/><rect x="122" y="110" width="52" height=".6"/></g>
+            <g font-size="3" fill="#555"><text x="6" y="116">11:00〜18:00</text><text x="6" y="121">定休日 水曜</text><text x="64" y="116">ブレンド 500円</text><text x="64" y="121">カフェオレ 550円</text><text x="122" y="116">駅から歩いて5分</text><text x="122" y="121">駐車場はありません</text></g>
+            <g fill="#D3D3D3"><rect x="6" y="127" width="50" height="1.3"/><rect x="6" y="131" width="44" height="1.3"/><rect x="6" y="135" width="48" height="1.3"/><rect x="64" y="127" width="52" height="1.3"/><rect x="64" y="131" width="40" height="1.3"/><rect x="64" y="135" width="47" height="1.3"/><rect x="122" y="127" width="46" height="1.3"/><rect x="122" y="131" width="52" height="1.3"/><rect x="122" y="135" width="36" height="1.3"/></g>
+            <rect x="6" y="146" width="52" height="30" fill="#E7DCCB"/><rect x="64" y="146" width="52" height="30" fill="#CBD5C4"/><rect x="122" y="146" width="52" height="30" fill="#D9C7AE"/>
+            <g fill="#D3D3D3"><rect x="6" y="182" width="48" height="1.3"/><rect x="6" y="186" width="40" height="1.3"/><rect x="64" y="182" width="50" height="1.3"/><rect x="64" y="186" width="34" height="1.3"/><rect x="122" y="182" width="44" height="1.3"/><rect x="122" y="186" width="50" height="1.3"/></g>
+            <text x="6" y="202" font-size="4" font-weight="700" fill="#3D2B1C">お店について</text>
+            <g fill="#D3D3D3"><rect x="6" y="208" width="168" height="1.3"/><rect x="6" y="212.5" width="160" height="1.3"/><rect x="6" y="217" width="166" height="1.3"/><rect x="6" y="221.5" width="120" height="1.3"/><rect x="6" y="230" width="168" height="1.3"/><rect x="6" y="234.5" width="150" height="1.3"/><rect x="6" y="239" width="162" height="1.3"/><rect x="6" y="243.5" width="90" height="1.3"/></g>
+            <rect x="6" y="254" width="80" height="34" fill="#EFEAE2"/><rect x="94" y="254" width="80" height="34" fill="#EFEAE2"/>
+            <rect y="300" width="180" height="30" fill="#3D2B1C"/><text x="90" y="316" font-size="3" fill="#C9BBA8" text-anchor="middle">© 喫茶 青い木</text>
+          </svg></div>
+          <div><span class="n">01</span><h3>文字が豆粒</h3><p>パソコン用の画面が、そのまま縮んで出ます。指で広げないと、営業時間も読めません。</p></div>
+        </li>
+        <li class="woe">
+          <div class="phone mini" aria-hidden="true"><svg viewBox="0 0 180 330">
+            <rect width="180" height="330" fill="#fff"/><rect x="72" y="5" width="36" height="5" rx="2.5" fill="#D6D6D6"/>
+            <rect x="8" y="15" width="164" height="21" rx="10.5" fill="#FBEDE8"/>
+            <rect x="6" y="13" width="168" height="25" rx="12.5" fill="none" stroke="#A2472E" stroke-width="1.6"/>
+            <path d="M14 30.5l5-9 5 9z" fill="none" stroke="#A2472E" stroke-width="1.3" stroke-linejoin="round"/><path d="M19 24.6v2.6M19 28.8v.1" stroke="#A2472E" stroke-width="1.3" stroke-linecap="round"/>
+            <text x="28" y="29.6" font-size="10" font-weight="700" fill="#A2472E">保護されていない通信</text>
+            <rect y="42" width="180" height="96" fill="#D8D2C6"/><rect x="48" y="72" width="84" height="66" fill="#9C8A74"/><path d="M38 72h104l-7-15H45z" fill="#5E6670"/><rect x="80" y="98" width="20" height="40" fill="#D8D2C6"/><rect x="58" y="84" width="15" height="15" fill="#C7C1B4"/><rect x="107" y="84" width="15" height="15" fill="#C7C1B4"/>
+            <text class="mn" x="12" y="162" font-size="15" font-weight="700" fill="#1F1F1F">喫茶 青い木</text>
+            <text x="12" y="177" font-size="8" fill="#666">自家焙煎のコーヒーと手作りのお菓子</text>
+            <g fill="#E3E3E3"><rect x="12" y="190" width="156" height="4" rx="2"/><rect x="12" y="200" width="140" height="4" rx="2"/><rect x="12" y="210" width="118" height="4" rx="2"/></g>
+            <text x="12" y="236" font-size="9" font-weight="700" fill="#1F1F1F">営業時間</text>
+            <text x="12" y="250" font-size="8.5" fill="#444">11:00〜18:00（水曜定休）</text>
+            <g fill="#E3E3E3"><rect x="12" y="266" width="150" height="4" rx="2"/><rect x="12" y="276" width="104" height="4" rx="2"/><rect x="12" y="296" width="156" height="4" rx="2"/><rect x="12" y="306" width="90" height="4" rx="2"/></g>
+          </svg></div>
+          <div><span class="n">02</span><h3>「保護されていない通信」</h3><p>鍵マーク（https）の無いページを開くと、ブラウザがアドレス欄にこうした警告を出します。</p></div>
+        </li>
+        <li class="woe">
+          <div class="phone mini" aria-hidden="true"><svg viewBox="0 0 180 330">
+            <rect width="180" height="330" fill="#fff"/><rect x="72" y="5" width="36" height="5" rx="2.5" fill="#D6D6D6"/>
+            <rect x="8" y="15" width="164" height="21" rx="10.5" fill="#F1F3F4"/>
+            <rect x="16" y="24.5" width="8" height="6.5" rx="1" fill="#5F6368"/><path d="M17.8 24.5v-1.6a2.2 2.2 0 0 1 4.4 0v1.6" fill="none" stroke="#5F6368" stroke-width="1.3"/>
+            <text x="30" y="29.5" font-size="8.5" fill="#3C4043">kissa-aoiki.example</text>
+            <rect y="42" width="180" height="76" fill="#D5D2CC"/><rect x="52" y="68" width="76" height="50" fill="#A8A39B"/><path d="M42 68h96l-6-13H48z" fill="#77797C"/><rect x="80" y="90" width="20" height="28" fill="#D5D2CC"/>
+            <text class="mn" x="12" y="140" font-size="15" font-weight="700" fill="#1F1F1F">喫茶 青い木</text>
+            <text x="12" y="164" font-size="9.5" font-weight="700" fill="#1F1F1F">お知らせ</text>
+            <rect x="12" y="169" width="156" height=".8" fill="#CCC"/>
+            <g font-size="7.5" fill="#888"><text x="12" y="183">2019.12.20</text><text x="12" y="211">2019.08.01</text><text x="12" y="239">2019.04.10</text></g>
+            <g font-size="8.5" fill="#333"><text x="12" y="195">年末年始の営業について</text><text x="12" y="223">夏休みのお知らせ</text><text x="12" y="251">ランチを始めました</text></g>
+            <rect x="8" y="276" width="164" height="34" rx="5" fill="#FBEDE8" stroke="#A2472E" stroke-width="1.4"/>
+            <text x="90" y="298" font-size="12" font-weight="700" fill="#A2472E" text-anchor="middle">最終更新 2019年</text>
+          </svg></div>
+          <div><span class="n">03</span><h3>最終更新 2019年</h3><p>営業時間やメニューが、いつの情報なのか、見た人には分かりません。</p></div>
+        </li>
+      </ul>
+
+      <article class="card main fix">
+        <div class="phone mini" aria-hidden="true"><svg viewBox="0 0 180 330">
+          <rect width="180" height="330" fill="#fff"/><rect x="72" y="5" width="36" height="5" rx="2.5" fill="#D6D6D6"/>
+          <rect x="8" y="15" width="164" height="21" rx="10.5" fill="#F1F3F4"/>
+          <rect x="16" y="24.5" width="8" height="6.5" rx="1" fill="#1D3557"/><path d="M17.8 24.5v-1.6a2.2 2.2 0 0 1 4.4 0v1.6" fill="none" stroke="#1D3557" stroke-width="1.3"/>
+          <text x="30" y="29.5" font-size="8.5" fill="#3C4043">kobeweb.jp/aoiki/</text>
+          <svg x="0" y="40" width="180" height="110" viewBox="0 0 120 80" preserveAspectRatio="xMidYMid slice"><rect width="120" height="80" fill="#D9C7AE"/><rect y="52" width="120" height="28" fill="#B79A76"/><ellipse cx="60" cy="56" rx="30" ry="7" fill="#F4EFE6"/><path d="M42 34h36l-4 22H46z" fill="#FFFFFF"/><path d="M78 39c8 0 8 10 0 10" stroke="#FFFFFF" stroke-width="3" fill="none"/><ellipse cx="60" cy="34" rx="18" ry="3.5" fill="#6B4A2E"/><path d="M54 22c-3-5 3-7 0-12M64 22c-3-5 3-7 0-12" stroke="#FFFFFF" stroke-width="2" fill="none" opacity=".8"/></svg>
+          <text class="mn" x="14" y="174" font-size="17" font-weight="700" fill="#1F1F1F">喫茶 青い木</text>
+          <text x="14" y="189" font-size="8.5" fill="#666">自家焙煎のコーヒーと手作りのお菓子</text>
+          <text x="14" y="208" font-size="9"><tspan fill="#1E7A46" font-weight="700">営業中</tspan><tspan fill="#444"> ・ 本日 11:00〜18:00</tspan></text>
+          <rect x="14" y="219" width="74" height="26" rx="13" fill="#1D3557"/><text x="51" y="235.5" font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">電話する</text>
+          <rect x="94" y="219" width="72" height="26" rx="13" fill="#fff" stroke="#1D3557" stroke-width="1.3"/><text x="130" y="235.5" font-size="9.5" font-weight="700" fill="#1D3557" text-anchor="middle">道順を見る</text>
+          <text x="14" y="266" font-size="9.5" font-weight="700" fill="#1F1F1F">メニュー</text>
+          <rect x="14" y="271" width="152" height=".8" fill="#DDD"/>
+          <g font-size="8.5" fill="#333"><text x="14" y="285">ブレンド</text><text x="14" y="299">自家製プリン</text></g>
+          <g font-size="8.5" fill="#333" text-anchor="end"><text x="166" y="285">500円</text><text x="166" y="299">450円</text></g>
+          <text x="90" y="321" font-size="7.5" fill="#888" text-anchor="middle">更新 2026年10月</text>
+        </svg></div>
+        <div>
+          <p class="lbl">月8,800円に入っています</p>
+          <h3>スマホで見やすい1枚を、別に足します</h3>
+          <p class="desc">Googleマップの更新に付いてくる1枚もののホームページを、はじめからスマホ用に組み、鍵マーク（https）を付けて作ります。いまのホームページと、いまの業者さんは、そのままで構いません。</p>
+          <ul>
+            <li>鍵マーク付きなので、この1枚では「保護されていない通信」の警告は出ません（いまのホームページの警告は、そのまま残ります）</li>
+            <li>スマホの幅に合わせて組むので、指で広げずに読めます</li>
+            <li>営業時間やメニューが変わったら、Googleマップを直すのと同じ時に、こちらで入力します（表示が変わるまでの時間は、それぞれ違います）</li>
+            <li>制作費は別に取りません</li>
+          </ul>
+        </div>
+      </article>
+      <p class="note-fig">図はイメージです。お店とアドレスは架空です。</p>
+    </div>
+  </section>
+
+  <section class="sec sec--white" id="service">
+    <div class="wrap">
+      <p class="eyebrow">SERVICE</p>
+      <h2>お預かりする3つ</h2>
+      <p class="lead">月8,800円の中心はGoogleマップです。1枚もののホームページは、そこに付いてきます。LINEは別料金になります。</p>
+      <div class="svc">
+        <article class="card main">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6.1-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.9-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+          <p class="lbl">月8,800円に入っています</p>
+          <h3>Googleマップ</h3>
+          <p class="desc">お客様がお店を決める最後の一歩で見る場所です。ここが古いままだと、ほかの店に流れやすくなります。</p>
+          <ul>
+            <li>クチコミへの返信の下書き。クチコミは毎晩確かめ、星1〜2のものはその晩のうちにお送りします（星1〜2がひと月に10件を超えたら、11件目からは追加の料金なしで続けますが、お送りが翌日以降になることがあります）</li>
+            <li>お知らせの投稿を<span class="nb">月2本</span>。写真の入れ替えは、送っていただいたつど（月10枚まで）</li>
+            <li>臨時休業や営業時間の変更は、その日の前日21時までにLINEでいただければ、その日の朝までに入力します（Googleの側で表示が変わるまで時間がかかることがあります。日中は別の仕事のため、当日朝のご連絡は入力が夕方以降になることがあります）</li>
+            <li>食べログ・ホットペッパーなどの掲載料が見合っているかを、3か月に1回一緒に見ます。契約を変えるかどうかはお店が決めます</li>
+            <li>お預かりするのは「管理者」の権限だけ。オーナーの権限はお店のまま</li>
+            <li>最初に情報が抜けている場合だけ、抜けた欄（業種・メニュー・写真など）をまとめて埋める整備費11,000円をいただきます。毎月の更新とは別の、最初の1回だけの作業です。そのあとの写真の入れ替えや営業時間の変更は、月額に入っています。要るかどうかは、ご契約の前に見て、抜けている欄を挙げてお伝えします。お店が頼まなければかかりません</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 8.5h18M6 6.2h.01M8.5 6.2h.01M7 12h10M7 15.5h6"/></svg></div>
+          <p class="lbl">付属・月8,800円に入っています</p>
+          <h3>ホームページ</h3>
+          <p class="desc">Googleマップに付けて、スマホで見やすい1枚もののホームページを作り、そのまま維持します。制作費は別に取りません。Googleマップの「ウェブサイト」を、いまのホームページのままにするか、この1枚に向けるかは、お店が決めます。この1枚に向ける場合は、1枚の中に、いまのホームページや予約ページへの入口を置きます。</p>
+          <ul>
+            <li>いまのホームページと業者さんは、そのまま残せます</li>
+            <li>はじめからスマホ用に組み、鍵マーク（https）を付けて作ります</li>
+            <li>営業時間やメニューが変わったら、こちらで直します</li>
+            <li>いまのサイトの文字や写真の差し替えも任せたい場合は、月2,200円で月3箇所まで直します。スマホ対応などの作り直しは含みません。いまの業者さんから編集の権限をいただける場合に限ります</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div>
+          <p class="lbl ex">別料金です</p>
+          <h3>LINE公式アカウント</h3>
+          <p class="desc">開設と初期設定に11,000円、そのあとの運用が月2,200円です。アカウントを作るのにLINEへ払うお金は要らず、送る人数×回数の合計が月200通までなら、配信料もかかりません。</p>
+          <ul>
+            <li>開設と初期設定。あいさつ文、リッチメニュー、自動応答まで</li>
+            <li>配信する文章の下書きを<span class="nb">月2本</span>。送信ボタンはお店の方が押します</li>
+            <li>お店のスマホで開設していただき、こちらを運用担当者に入れる形です</li>
+          </ul>
+        </article>
       </div>
+    </div>
+  </section>
 
-      <div class="pillar">
-        <h3>LINE公式アカウント<span class="tag">別料金です</span></h3>
-        <p class="note">開設と初期設定に11,000円、そのあとの運用が月2,200円です。アカウント自体はLINEに無料で作れて、月200通まで配信料もかかりません。</p>
-        <ul>
-          <li>開設と初期設定。あいさつ文、リッチメニュー、自動応答まで</li>
-          <li>配信する文章の下書きを月2本。送信ボタンはお店の方が押します</li>
-          <li>お店のスマホで開設していただき、こちらを運用担当者に入れる形です</li>
-        </ul>
+  <section class="sec" id="price">
+    <div class="wrap">
+      <p class="eyebrow">PRICE</p>
+      <h2>料金</h2>
+      <div class="price-grid">
+        <div class="price-card">
+          <p class="k">基本の月額</p>
+          <p class="num">8,800<small>円 / 月（税込）</small></p>
+          <ul>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Googleマップの更新と、付いてくるホームページは、この中に入っています</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>ホームページの制作費は取りません</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>解約料もありません。基本の月額8,800円は、ご契約の間は上げません</li>
+          </ul>
+          <p class="fine">初期費用がかかるのは、LINEの開設と、Googleマップの初期整備を頼まれた場合だけです。</p>
+        </div>
+        <div class="tables">
+          <table class="opt">
+            <caption>頼む仕事を増やすとき（月額）</caption>
+            <tr><th>内容</th><th class="p">追加（税込）</th></tr>
+            <tr><td>LINE公式アカウントの運用<small>配信文の下書き 月2本まで</small></td><td class="p">2,200円</td></tr>
+            <tr><td>ネット予約の設置と運用</td><td class="p">3,300円</td></tr>
+            <tr><td>通販（BASE・STORES）の商品登録と更新</td><td class="p">3,300円</td></tr>
+            <tr><td>写真撮影<small>3か月に1回、お店へ伺って撮ります。3か月ごとの区切りで、1区切り6,600円です。1回目は申し込んだ月に伺います</small></td><td class="p">2,200円</td></tr>
+            <tr><td>Instagram 投稿文の下書き<small>投稿はお店の方が押します</small></td><td class="p">2,200円</td></tr>
+            <tr><td>いまのホームページの更新代行<small>文字や写真の差し替えを月3箇所まで。作り直しは含みません</small></td><td class="p">2,200円</td></tr>
+                      </table>
+          <p class="fine">予約サービスや通販サイトの利用料・手数料は、お店からそれぞれの会社へお支払いください。それぞれの細かい範囲（件数・枚数・回数）は、お申し込みの前に紙でお渡しします。</p>
+          <table class="opt">
+            <caption>頼まれたときだけ、最初に1回</caption>
+            <tr><th>内容</th><th class="p">費用（税込）</th></tr>
+            <tr><td>LINE公式アカウントの開設と初期設定<small>あいさつ文・リッチメニュー・応答設定まで</small></td><td class="p">11,000円</td></tr>
+            <tr><td>Googleマップの初期整備<small>カテゴリ・属性・メニュー・写真を一括で整えます</small></td><td class="p">11,000円</td></tr>
+            <tr><td>お店を閉めるときの、Googleへの「閉業」の届け出</td><td class="p">いただきません</td></tr>
+          </table>
+        </div>
       </div>
-
     </div>
   </section>
 
-  <section>
-    <h2>料金</h2>
-    <div class="price">
-      <span class="num">8,800</span><span class="tax">円 / 月（税込）</span>
-    </div>
-    <p class="note" style="margin-top:8px">
-      ホームページとGoogleマップは、この中に入っています。ホームページの制作費は取りません。
-      解約料もありません。この金額は動かしません。<br>
-      初期費用がかかるのは、LINEの開設と、Googleマップの初期整備を頼まれた場合だけです。
-    </p>
-
-    <table class="opt">
-      <tr><th>頼む仕事を増やすとき（月額）</th><th class="p" style="text-align:right">追加（税込）</th></tr>
-      <tr><td>LINE公式アカウントの運用<small>配信文の下書き 月2本まで</small></td><td class="p">2,200円</td></tr>
-      <tr><td>ネット予約の設置と運用</td><td class="p">3,300円</td></tr>
-      <tr><td>通販（BASE・STORES）の商品登録と更新</td><td class="p">3,300円</td></tr>
-      <tr><td>写真撮影<small>四半期に1回、お店へ伺います</small></td><td class="p">2,200円</td></tr>
-      <tr><td>Instagram 投稿文の下書き<small>投稿はお店の方が押します</small></td><td class="p">2,200円</td></tr>
-      <tr><td>ホームページ更新代行<small>月3箇所まで。ページが何枚もあるサイト向け</small></td><td class="p">2,200円</td></tr>
-      <tr><td>サイト保守</td><td class="p">1,650円</td></tr>
-    </table>
-
-    <table class="opt">
-      <tr><th>頼まれたときだけ、最初に1回</th><th class="p" style="text-align:right">費用（税込）</th></tr>
-      <tr><td>LINE公式アカウントの開設と初期設定<small>あいさつ文・リッチメニュー・応答設定まで</small></td><td class="p">11,000円</td></tr>
-      <tr><td>Googleマップの初期整備<small>カテゴリ・属性・メニュー・写真を一括で整えます</small></td><td class="p">11,000円</td></tr>
-      <tr><td>お店を閉めるときの、Googleへの「閉業」の届け出</td><td class="p">いただきません</td></tr>
-    </table>
-  </section>
-
-  <section>
-    <h2>毎月、何にどれだけ手をかけるか</h2>
-    <p class="note" style="margin-top:10px">
-      金額が高いか安いかは、比べる相手がいないと決められません。時間なら比べられます。
-      うちは1件あたり月44分を使います。1人で回せるのは月20時間ほどなので、
-      15件でちょうど埋まります。<strong>15件で締め切るのは、この44分を守るためです。</strong>
-      件数を増やせば、1件に使える時間はそのぶん減ります。
-    </p>
-    <div class="ledger">
-      <table>
-        <tr><td>営業時間・臨時休業の反映（サイトとGoogleの両方）</td><td class="min">10 分</td></tr>
-        <tr><td>クチコミ返信の下書き</td><td class="min">6 分</td></tr>
-        <tr><td>食べログ・ホットペッパーの見直し相談</td><td class="min">7 分</td></tr>
-        <tr><td>お知らせの投稿 月2本</td><td class="min">8 分</td></tr>
-        <tr><td>月次のご報告（LINEで3行）</td><td class="min">3 分</td></tr>
-        <tr><td>請求・入金確認・突発の対応</td><td class="min">10 分</td></tr>
-        <tr class="sum"><td>合計</td><td class="min">44 分</td></tr>
-      </table>
-    </div>
-    <p class="note" style="margin-top:18px">
-      毎月末に、LINEで3行だけご報告します。中身は決まっています。
-    </p>
-    <ul class="report">
-      <li>Googleマップにお店が表示された回数</li>
-      <li>電話ボタンが押された回数</li>
-      <li>先月より伸びた検索語</li>
-    </ul>
-    <p class="note">
-      始めた月の数字を残しておくので、1年後に見比べられます。増えていなければ、そう書きます。
-    </p>
-  </section>
-
-  <section>
-    <h2>やめ方を、先に書いておきます</h2>
-    <div class="pact">
-      <dl>
-        <div><dt>1ヶ月でやめられます</dt>
-          <dd>違約金はありません。「今月で」と言っていただければ、その月で終わりです。</dd></div>
-        <div><dt>鍵はお店が持ったままです</dt>
-          <dd>Googleマップもホームページも、オーナーの権限はお店にあります。こちらは「管理者」としてお預かりするだけで、お店の側からいつでも外せます。その手順を書いた紙を、契約のときにお渡しします。</dd></div>
-        <div><dt>お店の作業は、月に15分以内です</dt>
-          <dd>写真はこちらが撮りに行きます。文章もこちらが書きます。LINEで「ええよ」と言っていただくだけです。</dd></div>
-      </dl>
-    </div>
-    <p class="note" style="margin-top:20px">やらないことも書いておきます。</p>
-    <ul class="no">
-      <li>検索順位のレポート</li><li>競合分析</li><li>ブログの更新代行</li>
-      <li>SNSの投稿代行（下書きまで）</li><li>24時間サポート</li><li>電話対応</li>
-    </ul>
-    <p class="note">電話には出ません。そのかわり、LINEは翌営業日までに必ず返します。</p>
-  </section>
-
-  <section>
-    <h2>やっている人</h2>
-    <div class="who">
-      <div class="row"><span class="k">屋号</span><span>KOBE WEB</span></div>
-      <div class="row"><span class="k">氏名</span><span>丸井 康弘（まるい やすひろ）</span></div>
-      <div class="row"><span class="k">活動場所</span><span>神戸市東灘区北青木。東灘・灘・芦屋を中心に伺います</span></div>
-      <div class="row"><span class="k">はたらき方</span><span>日中は別の仕事をしています。ご連絡への対応は夜になることがあります。それでも「その日のうち」は必ず守ります</span></div>
+  <section class="sec sec--tint" id="time">
+    <div class="wrap">
+      <p class="eyebrow">TIME</p>
+      <h2>毎月、何にどれだけ手をかけるか</h2>
+      <p class="lead">金額が高いか安いかは、比べる相手がいないと決められません。時間なら比べられます。うちは1件あたり月44分を目安に使います。15件で月11時間です。追加の仕事と、新しいお店の準備を足すと、昼の仕事と並べて一人で回せるのはここまでです。<b>15件で締め切るのは、この44分を守るためです。</b>件数を増やせば、1件に使える時間はそのぶん減ります。</p>
+      <div class="time-grid">
+        <ul class="bars">
+          <li><span>営業時間・臨時休業の反映（Googleとサイトの両方）</span><span class="m">10 分</span><span class="bar"><i style="width:100%"></i></span></li>
+          <li><span>クチコミ返信の下書き</span><span class="m">6 分</span><span class="bar"><i style="width:60%"></i></span></li>
+          <li><span>食べログ・ホットペッパーの見直し相談</span><span class="m">7 分</span><span class="bar"><i style="width:70%"></i></span></li>
+          <li><span>お知らせの投稿 月2本</span><span class="m">8 分</span><span class="bar"><i style="width:80%"></i></span></li>
+          <li><span>月次のご報告（LINEで3行）</span><span class="m">3 分</span><span class="bar"><i style="width:30%"></i></span></li>
+          <li><span>請求・入金確認・突発の対応</span><span class="m">10 分</span><span class="bar"><i style="width:100%"></i></span></li>
+          <li class="sum"><span>合計</span><span class="m">44 分</span></li>
+        </ul>
+        <div class="report">
+          <h3>毎月末に、LINEで3行だけご報告します</h3>
+          <p>中身は決まっています。</p>
+          <ol>
+            <li>Googleマップにお店が表示された回数</li>
+            <li>電話ボタンが押された回数</li>
+            <li>先月より伸びた検索語</li>
+          </ol>
+          <p>始めた月の数字を残しておくので、1年後に見比べられます。増えていなければ、そう書きます。これは来店数や売上の数字ではありません。伸びた検索語が無い月は「無し」と書きます。</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>ご連絡</h2>
-    <p class="note" style="margin-top:14px">
-      「うちのネットまわり、どうなってる？」とだけ送っていただければ、
-      ホームページとGoogleマップを実際に見て、気づいた点をA4 1枚にまとめてお送りします。
-      3日以内、費用はいただきません。そこで終わっていただいて構いません。
-    </p>
-    <div class="contact">
-      <a class="big" href="mailto:kobewebservice@gmail.com">kobewebservice@gmail.com</a>
-      <a class="big" href="https://lin.ee/NiVpAf5">LINEで相談　@468efowa</a>
+  <section class="sec" id="quit">
+    <div class="wrap">
+      <p class="eyebrow">TERMS</p>
+      <h2>やめ方を、先に書いておきます</h2>
+      <div class="pacts">
+        <div class="pact"><span class="n">1</span><h3>1ヶ月でやめられます</h3>
+          <p>お支払いは、ページを公開した月の翌月1日から始まります。違約金はありません。月末までにLINEで「今月で」と言っていただければ、その月で終わりです。日割りの返金はしません。写真撮影を付けた場合だけは3か月ごとの区切りで、区切りの途中でやめても、その3か月分（6,600円）はいただきます。区切りの月末までに言っていただければ、次の3か月は続きません。</p></div>
+        <div class="pact"><span class="n">2</span><h3>鍵はお店が持ったままです</h3>
+          <p>Googleマップのオーナーの権限は、お店にあります。こちらは「管理者」としてお預かりするだけで、お店の側からいつでも外せます。その手順を書いた紙を、契約のときにお渡しします。付いてくるホームページは、こちらの場所に置いて動かします。やめるときは、Googleマップの「ウェブサイト」を、お店が決めた先（いまのホームページか空欄）に直してから、その月の末でページを閉じます。やめると言っていただいた時に、ページのファイル一式（文章と、こちらで撮った写真やお店からいただいた写真を含む）をすぐお渡しするので、ほかの業者さんに置いてもらえます（置き直しはその業者さんの仕事になり、アドレスは変わります）。チラシや二次元コードには、このページではなく、Googleマップのお店のページを載せてください。</p></div>
+        <div class="pact"><span class="n">3</span><h3>お店の作業は、基本なら月に15分ほどです</h3>
+          <p>写真はスマホで撮ってLINEで送っていただくだけで、選ぶのと整えるのはこちらです。文章もこちらが書きます。LINEで「ええよ」と言っていただくだけです。始める月と、追加の仕事を頼まれた場合は、そのぶん手間が増えます。</p></div>
+      </div>
+      <div class="nots">
+        <div>
+          <h3>やらないことも書いておきます</h3>
+          <ul class="nolist">
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>検索順位のレポート</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>競合分析</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>ブログの更新代行</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>SNSへの投稿ボタンを押すこと（文の下書きは追加で頼めます）</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>24時間サポート</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>電話対応</li>
+          </ul>
+        </div>
+        <p class="tel"><b>電話には出ません。</b>そのかわり、21時までにいただいたLINEは、その日のうちに返します。夜になることがあります。</p>
+      </div>
     </div>
   </section>
 
-  <footer>
+  <section class="sec sec--white" id="who">
+    <div class="wrap">
+      <p class="eyebrow">PROFILE</p>
+      <h2>やっている人</h2>
+      <div class="who">
+        <div class="r"><span class="k">屋号</span><span>KOBE WEB</span></div>
+        <div class="r"><span class="k">氏名</span><span>丸井 康弘（まるい やすひろ）</span></div>
+        <div class="r"><span class="k">活動場所</span><span>神戸市東灘区北青木。東灘・灘・芦屋を中心に伺います</span></div>
+        <div class="r"><span class="k">はたらき方</span><span>日中は別の仕事をしています。ご連絡への対応は夜になることがあります。ご連絡には、その日のうちに返すようにしています</span></div>
+        <div class="r"><span class="k">お受けする数</span><span>15件で締め切ります。一人で回せる数がそこまでだからです</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">CONTACT</p>
+      <h2>「うちのネットまわり、<span class="nb">どうなってる？」</span><span class="nb">とだけ送ってください</span></h2>
+      <p class="lead">Googleマップとホームページを実際に見て、気づいた点をA4 1枚にまとめてお送りします。3日以内、費用はいただきません。そこで終わっていただいて構いません。</p>
+      <div class="btns">
+        <a class="btn btn--light" href="https://lin.ee/NiVpAf5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>LINEで相談する</a>
+        <a class="btn btn--line-light" href="mailto:kobewebservice@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>メールで相談する</a>
+      </div>
+      <p class="addr">メール　<a href="mailto:kobewebservice@gmail.com">kobewebservice@gmail.com</a><br>LINE　@468efowa</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
     KOBE WEB　丸井 康弘<br>
     神戸市東灘区北青木（活動拠点）／〒103-0027 東京都中央区日本橋2-16-4 remix日本橋6階（会社所在地）
     <hr class="sep">
     表示している金額はすべて税込です。
     Google、Googleマップ、Googleビジネスプロフィールは Google LLC の商標です。
     LINEは LINEヤフー株式会社 の商標です。
-  </footer>
-
-</div>
+  </div>
+</footer>
 </body>
 </html>
